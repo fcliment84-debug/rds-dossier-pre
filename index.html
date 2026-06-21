@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real de Seseña · Dossier de Bienvenida</title>
+<meta name="description" content="El cuidado que tu familiar merece, a 25 minutos de Madrid. Residencia con modelo AICP, equipo interdisciplinar completo y trato familiar. Desde 2005.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══ Sistema de diseño Real de Seseña (03_Estrategia/design-system.md) ═══ */
+  :root{
+    --cream:#F7F4EE; --sand:#EFE7DC; --foreground:#2E2A26;
+    --muted-fg:#6F6A63; --border:#DDD4C8; --card:#FFFFFF;
+    --primary:#2F7C74; --primary-hover:#266760;
+    --cta:#ED905B; --cta-hover:#D57C4B;
+    --warm:#C9A97C; --success:#6F8F5B;
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Manrope", system-ui, -apple-system, sans-serif;
+    --shadow-soft:0 1px 2px rgba(46,42,38,.05), 0 8px 24px rgba(46,42,38,.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body); background:var(--cream); color:var(--foreground);
+    font-feature-settings:"ss01","cv11"; -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility; line-height:1.55;
+  }
+  .display{font-family:var(--font-display); font-feature-settings:"ss01"; letter-spacing:-0.015em; font-weight:500;}
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+  .eyebrow{font-size:12.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--primary); margin-bottom:10px;}
+  h2.sec{font-family:var(--font-display); font-feature-settings:"ss01"; font-weight:500; font-size:30px; line-height:1.12; letter-spacing:-0.018em; margin-bottom:14px;}
+  h3{font-family:var(--font-display); font-weight:600; font-size:18px; color:var(--primary); margin-bottom:8px;}
+  p{font-size:16px; line-height:1.6; margin-bottom:12px;}
+  p.lead{font-size:18px; color:var(--foreground); opacity:.92;}
+  strong{font-weight:600;}
+  a{color:var(--primary); text-decoration:none;}
+  section{padding:52px 0; border-bottom:1px solid var(--border);}
+  section.alt{background:var(--sand);}
+
+  /* Botón CTA terracota cuadrado */
+  .btn-cta{display:inline-flex; align-items:center; gap:8px; background:var(--cta); color:#fff;
+    font-family:var(--font-body); font-size:14px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+    padding:15px 28px; border:0; box-shadow:var(--shadow-soft);}
+  .btn-cta:hover{background:var(--cta-hover); color:#fff;}
+
+  /* Tarjeta firma RDS: recta + franja terracota inferior */
+  .card{position:relative; background:var(--card); border:1px solid var(--border); padding:20px 22px; box-shadow:var(--shadow-soft); overflow:hidden;}
+  .card::after{content:""; position:absolute; left:0; right:0; bottom:0; height:6px; background:var(--cta);}
+  .card.teal::after{background:var(--primary);}
+  .card.warm::after{background:var(--warm);}
+
+  /* PORTADA */
+  .cover{position:relative; min-height:100vh; background:var(--cream);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:64px 28px;}
+  .cover .cover-stripe{position:absolute; top:0; left:0; right:0; height:6px; background:var(--cta);}
+  .cover .clogo{height:104px; width:auto; margin-bottom:30px;}
+  .cover .bar{width:54px; height:4px; background:var(--primary); margin:0 auto 24px;}
+  .cover .ceyebrow{font-size:13px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--primary); margin-bottom:14px;}
+  .cover .ctitle{font-size:58px; line-height:1.05; letter-spacing:-0.02em; color:var(--foreground); margin-bottom:20px;}
+  .cover .csub{font-size:21px; line-height:1.4; color:var(--foreground); opacity:.88; max-width:580px; margin:0 auto;}
+  .cover .csub span{color:var(--primary); font-weight:600;}
+  .cover .cfoot{position:absolute; bottom:44px; left:0; right:0; text-align:center; font-size:12px; letter-spacing:0.08em; color:var(--muted-fg); text-transform:uppercase;}
+
+  /* HERO */
+  .hero{background:var(--cream); padding:40px 0 56px;}
+  .hero .topbar{display:flex; align-items:center; justify-content:space-between; margin-bottom:40px;}
+  .hero img.logo{height:54px; width:auto;}
+  .hero .meta{font-size:12px; color:var(--muted-fg); text-align:right; line-height:1.5;}
+  .hero h1{font-family:var(--font-display); font-feature-settings:"ss01"; font-weight:500; font-size:48px; line-height:1.08; letter-spacing:-0.02em; margin:16px 0 18px; max-width:760px;}
+  .hero h1 span{color:var(--primary);}
+  .hero .sub{font-size:19px; color:var(--foreground); opacity:.9; max-width:620px; margin-bottom:26px;}
+
+  /* Stats */
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px;}
+  .stat{background:var(--card); border:1px solid var(--border); padding:16px 18px; position:relative; overflow:hidden;}
+  .stat::after{content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:var(--primary);}
+  .stat .v{font-family:var(--font-display); font-weight:600; font-size:22px; color:var(--primary); line-height:1.1;}
+  .stat .l{font-size:12.5px; color:var(--muted-fg); margin-top:4px; line-height:1.4;}
+
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  ul.clean{list-style:none; margin:6px 0 0;}
+  ul.clean li{position:relative; padding:6px 0 6px 26px; font-size:15.5px; line-height:1.5;}
+  ul.clean li::before{content:"✓"; position:absolute; left:0; top:6px; width:18px; height:18px; background:rgba(111,143,91,.16); color:var(--success); border-radius:50%; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+
+  /* Badges */
+  .badges{display:flex; flex-wrap:wrap; gap:10px; margin:4px 0 22px;}
+  .badge{background:var(--card); border:1px solid var(--border); padding:8px 14px; font-size:13px;}
+  .badge b{color:var(--primary); font-weight:700;}
+  .badge .seal{color:var(--warm);}
+
+  /* Testimonios */
+  .quotes{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:8px;}
+  .quote{background:var(--card); border:1px solid var(--border); padding:18px; position:relative; overflow:hidden;}
+  .quote::after{content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:var(--warm);}
+  .quote p{font-size:13.5px; line-height:1.5; font-style:italic; color:var(--foreground); margin-bottom:10px;}
+  .quote .who{font-size:12.5px; font-weight:700; color:var(--foreground);}
+  .quote .meta{font-size:11.5px; color:var(--muted-fg);}
+
+  /* FAQ */
+  .faq{margin-top:6px;}
+  .faq .q{font-family:var(--font-display); font-weight:600; font-size:17px; color:var(--foreground); margin:18px 0 6px;}
+  .faq .a{font-size:15.5px; line-height:1.55; color:var(--foreground); opacity:.92;}
+
+  /* Proceso */
+  .steps{counter-reset:s; margin-top:8px;}
+  .step{position:relative; padding:12px 0 12px 52px; border-bottom:1px solid var(--border);}
+  .step:last-child{border-bottom:0;}
+  .step::before{counter-increment:s; content:counter(s); position:absolute; left:0; top:12px; width:34px; height:34px; background:var(--primary); color:#fff; font-family:var(--font-display); font-weight:600; font-size:16px; display:flex; align-items:center; justify-content:center;}
+  .step b{font-weight:600;}
+  .step span{display:block; font-size:15px; color:var(--muted-fg); margin-top:2px;}
+
+  /* Presupuesto */
+  .budget{display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:center;}
+  .budget .cardbox{background:var(--card); border:1px solid var(--border); padding:24px; text-align:center; position:relative; overflow:hidden;}
+  .budget .cardbox::after{content:""; position:absolute; left:0; right:0; bottom:0; height:6px; background:var(--cta);}
+  .budget .cardbox .big{font-family:var(--font-display); font-weight:600; font-size:21px; line-height:1.15;}
+  .budget .cardbox .small{font-size:13px; color:var(--muted-fg); margin:8px 0 16px;}
+
+  /* Cierre */
+  .closing{background:var(--foreground); color:var(--cream); text-align:center; padding:56px 0;}
+  .closing h2{font-family:var(--font-display); font-weight:500; font-size:32px; line-height:1.12; margin-bottom:12px; color:var(--cream);}
+  .closing p{color:rgba(247,244,238,.82); max-width:520px; margin:0 auto 22px;}
+  .closing .contact{font-size:14px; color:rgba(247,244,238,.9); margin-top:22px; line-height:1.9;}
+  .closing .contact a{color:var(--warm);}
+  .strip{height:6px; background:var(--cta);}
+
+  @media(max-width:720px){
+    .hero h1{font-size:34px;} h2.sec{font-size:25px;}
+    .stats,.quotes{grid-template-columns:1fr;} .two,.budget{grid-template-columns:1fr;}
+    .hero .topbar{flex-direction:column; align-items:flex-start; gap:12px;} .hero .meta{text-align:left;}
+  }
+
+  /* ═══ PRINT / PDF (A4) — una sección por página, fondo a sangre ═══ */
+  @page{size:A4; margin:0;}
+  @media print{
+    html,body{background:#fff;}
+    .no-print,.strip{display:none;}
+    .wrap{max-width:100%; padding:0 16mm;}
+
+    /* Cada bloque ocupa una página A4 completa y arranca en página nueva. */
+    .cover, .hero, section, .closing{
+      box-sizing:border-box;
+      min-height:297mm;            /* alto A4 → el fondo rellena toda la página */
+      margin:0; border:0;
+      break-before:page;
+      break-inside:avoid;
+    }
+    .hero, section, .closing{padding:18mm 0; display:flow-root;}
+    .cover{padding:0 16mm; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+    .cover{break-before:auto;}     /* la portada es la primera página, sin salto previo */
+
+    /* Color de fondo correspondiente a cada sección, a sangre. */
+    .cover, .hero, section{background:var(--cream);}
+    section.alt{background:var(--sand);}
+    .closing{background:var(--foreground);}
+
+    /* Unidades pequeñas íntegras + sin títulos huérfanos. */
+    .stat,.card,.quote,.step,.budget .cardbox,.faqitem{break-inside:avoid;}
+    h2.sec,h3,.eyebrow,.faq .q{break-after:avoid;}
+    p{orphans:2; widows:2;}
+
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ PORTADA ═══════════ -->
+<section class="cover">
+  <div class="cover-stripe"></div>
+  <img class="clogo" src="https://realdesesena.com/wp-content/uploads/2022/04/Logo-real-sesena.png" alt="Real de Seseña">
+  <div class="bar"></div>
+  <h1 class="ctitle display">Dossier de presentación</h1>
+  <p class="csub">El cuidado que tu familiar merece. A <span>25 minutos de Madrid</span>.</p>
+  <div class="cfoot">el hogar de nuestros mayores &nbsp;·&nbsp; realdesesena.com</div>
+</section>
+
+<!-- ═══════════ BIENVENIDA ═══════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Bienvenida</p>
+    <h2 class="sec">Sabemos lo que significa esta decisión</h2>
+    <p class="lead">Elegir la residencia donde va a vivir tu padre, tu madre o la persona que más quieres es una de las decisiones más difíciles —y más importantes— que toma una familia. Se mezclan el cariño, la responsabilidad, las dudas y, muchas veces, las prisas. Lo entendemos, porque lo vivimos con cada familia que llega.</p>
+    <p>Hemos preparado este dossier precisamente para eso: para que puedas conocernos con calma, sin presión y con toda la información delante. En las próximas páginas verás cómo es la vida en el centro, qué incluye la cuota, quién forma nuestro equipo, qué cuentan las familias que ya están con nosotros y cómo resolvemos las dudas más habituales —desde la Ley de Dependencia hasta qué ocurre si surge una urgencia.</p>
+    <p>Porque Real de Seseña no es un sitio donde «dejar» a un mayor. Es un hogar donde se sigue viviendo: con rutinas, con compañía, con actividad y con la familia cerca. Cada persona mantiene su ritmo, sus gustos y su historia, y a su alrededor un equipo que la conoce por su nombre.</p>
+    <p>Tómate el tiempo que necesites para leerlo. Y cuando quieras, la mejor forma de saber si este es el lugar es venir a vernos.</p>
+
+    <div class="stats" style="margin-top:30px;">
+      <div class="stat"><div class="v">+20 años</div><div class="l">De trayectoria, desde 2005</div></div>
+      <div class="stat"><div class="v">Modelo AICP</div><div class="l">Atención Integral Centrada en la Persona</div></div>
+      <div class="stat"><div class="v">50 plazas</div><div class="l">Concertadas con la Junta de Castilla-La Mancha</div></div>
+      <div class="stat"><div class="v">A 25 min</div><div class="l">De Madrid · acceso por A-4 y R-4</div></div>
+      <div class="stat"><div class="v">100% transparencia</div><div class="l">En Inforesidencias · datos públicos</div></div>
+      <div class="stat"><div class="v">5,2 / 10</div><div class="l">Profesionales por residente, sobre la media</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ QUIÉNES SOMOS ═══════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Quiénes somos</p>
+    <h2 class="sec">Más de 20 años cuidando a los tuyos</h2>
+    <p class="lead">Real de Seseña abrió en 2005. Desde entonces hemos crecido alrededor de una idea sencilla: que vivir en una residencia no significa dejar de vivir como uno quiere.</p>
+    <p>Somos un centro humano y cercano, un <strong>negocio familiar</strong> con profesionalidad y vocación, donde el equipo conoce a cada residente, las familias tienen un interlocutor directo y los cuidados se adaptan a la persona, no al revés.</p>
+    <p>Trabajamos con el <strong>modelo de Atención Integral Centrada en la Persona (AICP)</strong>, que marca los estándares más exigentes en atención, instalaciones y gestión, y pone al residente en el centro de cada decisión.</p>
+    <div class="card teal" style="margin-top:18px;">
+      <h3>Nuestra misión</h3>
+      <p style="margin-bottom:0; font-size:15.5px;">Que la calidad de vida de cada mayor sea la mejor posible —no solo atender sus necesidades, sino darle herramientas para seguir creciendo, disfrutando y teniendo a la familia cerca. Y que las familias que nos confían su cuidado puedan estar tranquilas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LA VIDA EN EL CENTRO ═══════════ -->
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">El día a día</p>
+    <h2 class="sec">La vida en el centro</h2>
+    <p class="lead">Un día en Real de Seseña tiene el ritmo de una casa, no el de un hospital.</p>
+    <div class="two" style="margin-top:14px;">
+      <div>
+        <h3>Las mañanas</h3>
+        <p style="font-size:15.5px;">Empiezan sin prisa: cada persona se levanta a su hora (entre las 8:00 y las 11:00), desayuna con calma en la habitación y la jornada se llena de actividad: gerontogimnasia, terapia, talleres o un rato de conversación en el salón.</p>
+        <h3 style="margin-top:14px;">Las comidas</h3>
+        <p style="font-size:15.5px;">Caseras y adaptadas a cada persona —alergias, intolerancias, gustos—, siempre con menú alternativo. Cada dos meses los residentes proponen cambios. Y con el programa <em>“Alimentamos las emociones”</em> convertimos algunas comidas en una experiencia para recordar.</p>
+      </div>
+      <div>
+        <h3>Las tardes</h3>
+        <p style="font-size:15.5px;">Ocio, descanso y vida social: bingo, coro, manicura, huerto y jardinería, talleres, salidas al parque del municipio, música y baile cada semana.</p>
+        <h3 style="margin-top:14px;">La familia, cerca</h3>
+        <p style="font-size:15.5px;">Se puede visitar todos los días, de <strong>10:00 a 14:00 y de 16:00 a 20:00</strong>, en la zona de visitas, en la habitación o saliendo a pasear. La cafetería con máquinas está disponible 24 horas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICIOS ═══════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Servicios</p>
+    <h2 class="sec">Todo lo que incluye vivir aquí</h2>
+    <div class="two" style="margin-top:14px;">
+      <div class="card">
+        <h3>Incluido en la cuota</h3>
+        <ul class="clean">
+          <li><strong>Atención sanitaria diaria, 365 días al año:</strong> consulta médica entre semana, enfermería todos los días y urgencias médicas 24/7</li>
+          <li><strong>Equipo interdisciplinar:</strong> fisioterapia, terapia ocupacional, psicología (residente) y animación sociocultural</li>
+          <li>Estimulación multisensorial (Snoezelen) en sala exclusiva</li>
+          <li>Programa de actividades diario</li>
+          <li>Alojamiento y manutención completa, lavandería y limpieza</li>
+          <li>Salones, gimnasio, jardín y patios, capilla 24/7 con misa semanal</li>
+          <li>Acompañamiento y gestión administrativa familiar</li>
+        </ul>
+      </div>
+      <div class="card warm">
+        <h3>Complementarios (opcionales)</h3>
+        <p style="font-size:15px;">Para quien necesita un apoyo extra muy concreto:</p>
+        <ul class="clean">
+          <li>Seguimiento e intervención individual de fisioterapia, terapia ocupacional y psicología (psicología también para las familias)</li>
+          <li>Musicoterapia</li>
+          <li>Tecnología para compatibilizar autonomía y seguridad: sensores de movimiento, relojes con GPS y botón SOS, alarmas de prevención de salidas no controladas…</li>
+          <li>Baños terapéuticos</li>
+          <li>Paseos guiados y acompañamientos</li>
+          <li>Alquiler de ayudas técnicas (silla de ruedas, andador)</li>
+        </ul>
+        <p style="font-size:13.5px; color:var(--muted-fg); margin-top:10px; margin-bottom:0;">Tarifa detallada disponible a petición.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EQUIPO ═══════════ -->
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">El equipo</p>
+    <h2 class="sec">Un equipo que entiende lo que tu familia necesita</h2>
+    <p class="lead">Detrás de cada residente hay un equipo interdisciplinar completo en plantilla —médico, enfermería, fisioterapia, terapia ocupacional, psicología y animación sociocultural— que trabaja de forma coordinada. Con un ratio de <strong>5,2 profesionales por cada 10 residentes</strong>, por encima de la media del sector.</p>
+    <div class="two" style="margin-top:8px;">
+      <div class="card">
+        <h3>Técnico de acompañamiento</h3>
+        <p style="font-size:15px; margin-bottom:0;">Tu persona de referencia: facilita la integración los primeros días, supervisa el día a día, detecta a tiempo cualquier cambio y hace de enlace entre la residencia, el residente y la familia.</p>
+      </div>
+      <div class="card">
+        <h3>Profesional de referencia</h3>
+        <p style="font-size:15px; margin-bottom:0;">La auxiliar con mayor vínculo y confianza con cada residente, la que mejor conoce su día a día.</p>
+      </div>
+    </div>
+    <div class="card teal" style="margin-top:16px;">
+      <p style="font-style:italic; font-size:15.5px; margin-bottom:6px;">“Real de Seseña es un centro humano y cercano, donde el equipo conoce a cada residente y los cuidados se adaptan a la persona, no al revés.”</p>
+      <p style="font-size:13.5px; margin-bottom:0;"><strong>Sara Menchero García</strong> · Directora</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRUEBA SOCIAL ═══════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Lo que dicen las familias</p>
+    <h2 class="sec">Por qué confían en Real de Seseña</h2>
+    <div class="badges">
+      <div class="badge">Cuidemi <b>9.4/10</b></div>
+      <div class="badge">Google <b>4,3 ★</b> (81 reseñas)</div>
+      <div class="badge">MiResi · <b>verificado</b></div>
+      <div class="badge">Inforesidencias · <b>verificado</b></div>
+      <div class="badge"><span class="seal">●</span> AICP · ISO 9001 · UNE 158101</div>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <p>“Llevamos tres años con mi madre aquí y estamos encantados. El trato es excepcional, las cuidadoras la conocen perfectamente y siempre nos informan de todo. Es como una extensión de la familia.”</p>
+        <div class="who">Familia García</div><div class="meta">Residente desde 2023</div>
+      </div>
+      <div class="quote">
+        <p>“Después de visitar cinco residencias, elegimos Real de Seseña por el trato y la transparencia. Mi padre está feliz, participa en actividades todos los días y el equipo de psicología nos ha ayudado mucho en la adaptación.”</p>
+        <div class="who">Familia Rodríguez</div><div class="meta">Residente desde 2024</div>
+      </div>
+      <div class="quote">
+        <p>“Lo que más valoramos es la tranquilidad. Sabemos que está bien atendido, que si pasa algo nos llaman inmediatamente y que el equipo médico está encima. Para nosotros, eso no tiene precio.”</p>
+        <div class="who">Familia López</div><div class="meta">Residente desde 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Resolvemos tus dudas</p>
+    <h2 class="sec">Lo que más preguntan las familias</h2>
+    <div class="faq">
+      <div class="faqitem">
+        <p class="q">Somos de Madrid y la residencia está en Toledo. ¿Es un problema para la Ley de Dependencia?</p>
+        <p class="a">Es la duda más habitual y tiene solución. Si la dependencia ya está reconocida en Madrid, no hay que tramitarla de nuevo: basta con solicitar el <strong>traslado del expediente</strong> a Castilla-La Mancha, un proceso sencillo y rápido (baja del padrón en Madrid, empadronamiento en CLM y solicitud de traslado del expediente). <strong>Te acompañamos con la gestión administrativa</strong> para que no tengas que hacerlo solo. Y si tu familiar ya tiene reconocida la dependencia en CLM, puede acceder a una de nuestras <strong>50 plazas concertadas</strong> con la Junta.</p>
+      </div>
+      <div class="faqitem">
+        <p class="q">¿Y si hay una urgencia médica?</p>
+        <p class="a">Tenemos atención sanitaria diaria los 365 días del año: consulta médica entre semana, <strong>enfermería todos los días y urgencias médicas 24/7</strong>. Si pasa algo, la familia es la primera en saberlo.</p>
+      </div>
+      <div class="faqitem">
+        <p class="q">¿Cuándo y cómo podemos visitar?</p>
+        <p class="a">Todos los días, de 10:00 a 14:00 y de 16:00 a 20:00. En la zona de visitas, en la habitación o saliendo a pasear.</p>
+      </div>
+      <div class="faqitem">
+        <p class="q">¿Qué tipos de estancia hay?</p>
+        <p class="a">Estancia permanente, temporal (por vacaciones, recuperación o rehabilitación) o de respiro familiar. La cuota incluye alojamiento, manutención, atención sanitaria diaria y programa de actividades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESO ═══════════ -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Cómo funciona</p>
+    <h2 class="sec">De la primera llamada al primer día</h2>
+    <div class="steps">
+      <div class="step"><b>Hablamos.</b><span>Una primera llamada para conocer la situación y resolver dudas, sin compromiso.</span></div>
+      <div class="step"><b>Te enviamos este dossier</b><span>Y, si te encaja, proponemos una visita.</span></div>
+      <div class="step"><b>Vienes a conocernos.</b><span>La visita la hacen contigo nuestro equipo de dirección: zonas comunes, una habitación tipo y el equipo. Entre 45 minutos y 1 hora.</span></div>
+      <div class="step"><b>Reservas la plaza.</b><span>Cuando lo tienes claro, formalizamos la reserva.</span></div>
+      <div class="step"><b>Preparamos el traslado juntos.</b><span>Te guiamos con la documentación necesaria y coordinamos el día para que todo fluya con calma.</span></div>
+      <div class="step"><b>Bienvenida y acompañamiento.</b><span>El técnico de acompañamiento acompaña la adaptación; os llamamos a las 48h y la primera semana.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRESUPUESTO ═══════════ -->
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Presupuesto a medida</p>
+    <h2 class="sec">Cada familia es diferente. Tu presupuesto, también.</h2>
+    <div class="budget" style="margin-top:14px;">
+      <div>
+        <p>Sabemos que elegir residencia es una de las decisiones más importantes para una familia. Por eso preparamos un <strong>presupuesto personalizado</strong> según el tipo de estancia y el nivel de dependencia de tu familiar. Sin compromiso, te lo explicamos con claridad.</p>
+        <ul class="clean">
+          <li>Presupuesto adaptado a cada situación</li>
+          <li>Estancia permanente, temporal (por vacaciones, recuperación o rehabilitación) o respiro familiar</li>
+          <li>Incluye alojamiento, manutención, atención sanitaria diaria y programa de actividades</li>
+        </ul>
+      </div>
+      <div class="cardbox">
+        <div class="big">¿Quieres saber el coste real para tu familiar?</div>
+        <div class="small">Te lo enviamos con detalle en menos de 24 horas.</div>
+        <a class="btn-cta" href="#visita" style="width:100%; justify-content:center;">Pide tu presupuesto</a>
+        <div class="small" style="margin:10px 0 0;">Sin ningún compromiso</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CIERRE / CTA ═══════════ -->
+<div class="strip"></div>
+<footer class="closing" id="visita">
+  <div class="wrap">
+    <h2 class="display">Ven a conocernos</h2>
+    <p>La mejor forma de saber si Real de Seseña es el sitio es verlo: el ambiente, el trato, una habitación, el equipo.</p>
+    <a class="btn-cta" href="tel:+34918948300">Agenda tu visita</a>
+    <div class="contact">
+      <a href="tel:+34918948300">918 94 83 00</a> &nbsp;·&nbsp;
+      <a href="https://wa.me/34616346693">616 346 693 (WhatsApp)</a> &nbsp;·&nbsp;
+      <a href="mailto:info@realdesesena.com">info@realdesesena.com</a><br>
+      <a href="https://www.realdesesena.com">realdesesena.com</a> &nbsp;·&nbsp; C. Aranjuez, 19 · 45224 Seseña Nuevo (Toledo)
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
