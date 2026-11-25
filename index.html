@@ -111,13 +111,6 @@
   .step b{font-weight:600;}
   .step span{display:block; font-size:15px; color:var(--muted-fg); margin-top:2px;}
 
-  /* Presupuesto */
-  .budget{display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:center;}
-  .budget .cardbox{background:var(--card); border:1px solid var(--border); padding:24px; text-align:center; position:relative; overflow:hidden;}
-  .budget .cardbox::after{content:""; position:absolute; left:0; right:0; bottom:0; height:6px; background:var(--cta);}
-  .budget .cardbox .big{font-family:var(--font-display); font-weight:600; font-size:21px; line-height:1.15;}
-  .budget .cardbox .small{font-size:13px; color:var(--muted-fg); margin:8px 0 16px;}
-
   /* Cierre */
   .closing{background:var(--foreground); color:var(--cream); text-align:center; padding:56px 0;}
   .closing h2{font-family:var(--font-display); font-weight:500; font-size:32px; line-height:1.12; margin-bottom:12px; color:var(--cream);}
@@ -128,7 +121,7 @@
 
   @media(max-width:720px){
     .hero h1{font-size:34px;} h2.sec{font-size:25px;}
-    .stats,.quotes{grid-template-columns:1fr;} .two,.budget{grid-template-columns:1fr;}
+    .stats,.quotes{grid-template-columns:1fr;} .two{grid-template-columns:1fr;}
     .hero .topbar{flex-direction:column; align-items:flex-start; gap:12px;} .hero .meta{text-align:left;}
   }
 
@@ -157,7 +150,7 @@
     .closing{background:var(--foreground);}
 
     /* Unidades pequeñas íntegras + sin títulos huérfanos. */
-    .stat,.card,.quote,.step,.budget .cardbox,.faqitem{break-inside:avoid;}
+    .stat,.card,.quote,.step,.faqitem{break-inside:avoid;}
     h2.sec,h3,.eyebrow,.faq .q{break-after:avoid;}
     p{orphans:2; widows:2;}
 
@@ -265,7 +258,6 @@
           <li>Paseos guiados y acompañamientos</li>
           <li>Alquiler de ayudas técnicas (silla de ruedas, andador)</li>
         </ul>
-        <p style="font-size:13.5px; color:var(--muted-fg); margin-top:10px; margin-bottom:0;">Tarifa detallada disponible a petición.</p>
       </div>
     </div>
   </div>
@@ -365,40 +357,15 @@
   </div>
 </section>
 
-<!-- ═══════════ PRESUPUESTO ═══════════ -->
-<section class="alt">
-  <div class="wrap">
-    <p class="eyebrow">Presupuesto a medida</p>
-    <h2 class="sec">Cada familia es diferente. Tu presupuesto, también.</h2>
-    <div class="budget" style="margin-top:14px;">
-      <div>
-        <p>Sabemos que elegir residencia es una de las decisiones más importantes para una familia. Por eso preparamos un <strong>presupuesto personalizado</strong> según el tipo de estancia y el nivel de dependencia de tu familiar. Sin compromiso, te lo explicamos con claridad.</p>
-        <ul class="clean">
-          <li>Presupuesto adaptado a cada situación</li>
-          <li>Estancia permanente, temporal (por vacaciones, recuperación o rehabilitación) o respiro familiar</li>
-          <li>Incluye alojamiento, manutención, atención sanitaria diaria y programa de actividades</li>
-        </ul>
-      </div>
-      <div class="cardbox">
-        <div class="big">¿Quieres saber el coste real para tu familiar?</div>
-        <div class="small">Te lo enviamos con detalle en menos de 24 horas.</div>
-        <a class="btn-cta" href="#visita" style="width:100%; justify-content:center;">Pide tu presupuesto</a>
-        <div class="small" style="margin:10px 0 0;">Sin ningún compromiso</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════ CIERRE / CTA ═══════════ -->
 <div class="strip"></div>
 <footer class="closing" id="visita">
   <div class="wrap">
     <h2 class="display">Ven a conocernos</h2>
-    <p>La mejor forma de saber si Real de Seseña es el sitio es verlo: el ambiente, el trato, una habitación, el equipo.</p>
-    <a class="btn-cta" href="tel:+34918948300">Agenda tu visita</a>
+    <p>La mejor forma de saber si Real de Seseña es el sitio es verlo: el ambiente, el trato, una habitación, el equipo. Elige el día y la hora que mejor te vengan.</p>
+    <a class="btn-cta" href="https://cal.eu/residencia-real-de-sesena/visita">Agenda tu visita</a>
     <div class="contact">
       <a href="tel:+34918948300">918 94 83 00</a> &nbsp;·&nbsp;
-      <a href="https://wa.me/34616346693">616 346 693 (WhatsApp)</a> &nbsp;·&nbsp;
       <a href="mailto:info@realdesesena.com">info@realdesesena.com</a><br>
       <a href="https://www.realdesesena.com">realdesesena.com</a> &nbsp;·&nbsp; C. Aranjuez, 19 · 45224 Seseña Nuevo (Toledo)
     </div>
