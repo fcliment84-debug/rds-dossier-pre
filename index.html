@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real de Seseña · Dossier de Bienvenida</title>
 <meta name="description" content="El cuidado que tu familiar merece, a 25 minutos de Madrid. Residencia con modelo AICP, equipo interdisciplinar completo y trato familiar. Desde 2005.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -98,6 +99,18 @@
   .quote .who{font-size:12.5px; font-weight:700; color:var(--foreground);}
   .quote .meta{font-size:11.5px; color:var(--muted-fg);}
 
+  /* Precios */
+  .pcol{display:flex; flex-direction:column; gap:22px;}
+  .pcol .card:last-child{flex:1;}   /* iguala el pie de las dos columnas */
+  .pcol .card p{font-size:15px; margin-bottom:0;}
+  .ptable .row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:8px 0; border-bottom:1px solid var(--border); font-size:15px; line-height:1.4;}
+  .ptable .row:last-child{border-bottom:0;}
+  .ptable .row b{font-family:var(--font-display); font-weight:600; font-size:17px; color:var(--primary); white-space:nowrap;}
+  .ptable .grp{font-size:11.5px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted-fg); padding:14px 0 4px; border-bottom:1px solid var(--border);}
+  .ptable .grp:first-child{padding-top:2px;}
+  .fine{margin-top:20px;}
+  .fine p{font-size:12.5px; line-height:1.55; color:var(--muted-fg); margin-bottom:4px;}
+
   /* FAQ */
   .faq{margin-top:6px;}
   .faq .q{font-family:var(--font-display); font-weight:600; font-size:17px; color:var(--foreground); margin:18px 0 6px;}
@@ -151,6 +164,15 @@
 
     /* Unidades pequeñas íntegras + sin títulos huérfanos. */
     .stat,.card,.quote,.step,.faqitem{break-inside:avoid;}
+
+    /* Precios: compactar filas para que la sección quepa en una sola página A4. */
+    #precios{padding:14mm 0 6mm;}
+    #precios .card{padding:16px 22px;}
+    #precios .ptable .row{padding:4px 0; line-height:1.3;}
+    #precios .ptable .grp{padding-top:7px;}
+    #precios .two{margin-top:10px !important;}
+    #precios .psup{margin-top:14px !important;}
+    #precios .fine{margin-top:12px;}
     h2.sec,h3,.eyebrow,.faq .q{break-after:avoid;}
     p{orphans:2; widows:2;}
 
@@ -176,7 +198,7 @@
     <p class="eyebrow">Bienvenida</p>
     <h2 class="sec">Sabemos lo que significa esta decisión</h2>
     <p class="lead">Elegir la residencia donde va a vivir tu padre, tu madre o la persona que más quieres es una de las decisiones más difíciles —y más importantes— que toma una familia. Se mezclan el cariño, la responsabilidad, las dudas y, muchas veces, las prisas. Lo entendemos, porque lo vivimos con cada familia que llega.</p>
-    <p>Hemos preparado este dossier precisamente para eso: para que puedas conocernos con calma, sin presión y con toda la información delante. En las próximas páginas verás cómo es la vida en el centro, qué incluye la cuota, quién forma nuestro equipo, qué cuentan las familias que ya están con nosotros y cómo resolvemos las dudas más habituales —desde la Ley de Dependencia hasta qué ocurre si surge una urgencia.</p>
+    <p>Hemos preparado este dossier precisamente para eso: para que puedas conocernos con calma, sin presión y con toda la información delante. En las próximas páginas verás cómo es la vida en el centro, qué incluye la cuota y cuánto cuesta, quién forma nuestro equipo, qué cuentan las familias que ya están con nosotros y cómo resolvemos las dudas más habituales —desde la Ley de Dependencia hasta qué ocurre si surge una urgencia.</p>
     <p>Porque Real de Seseña no es un sitio donde «dejar» a un mayor. Es un hogar donde se sigue viviendo: con rutinas, con compañía, con actividad y con la familia cerca. Cada persona mantiene su ritmo, sus gustos y su historia, y a su alrededor un equipo que la conoce por su nombre.</p>
     <p>Tómate el tiempo que necesites para leerlo. Y cuando quieras, la mejor forma de saber si este es el lugar es venir a vernos.</p>
 
@@ -263,8 +285,61 @@
   </div>
 </section>
 
+<!-- ═══════════ PRECIOS (hoja «Precios Residencia 2026» del centro, julio 2026 — solo su contenido) ═══════════ -->
+<section class="alt" id="precios">
+  <div class="wrap">
+    <p class="eyebrow">Precios residencia 2026</p>
+    <h2 class="sec">Una tarifa personalizada según el apoyo que necesita cada persona</h2>
+    <div class="two" style="margin-top:14px;">
+      <div class="card teal">
+        <h3>Precio base</h3>
+        <div class="ptable">
+          <div class="row"><span>Habitación doble</span><b>2.000&nbsp;€</b></div>
+          <div class="row"><span>Habitación individual</span><b>2.250&nbsp;€</b></div>
+          <div class="row"><span>Habitación individual doble</span><b>2.350&nbsp;€</b></div>
+          <div class="row"><span>Habitación individual con terraza</span><b>2.600&nbsp;€</b></div>
+        </div>
+      </div>
+      <div class="pcol">
+        <div class="card warm">
+          <h3>Estancias temporales</h3>
+          <p>Las estancias inferiores a un mes incrementan en un 30&nbsp;% el precio de la plaza indefinida.</p>
+        </div>
+        <div class="card">
+          <h3>Precios personalizados</h3>
+          <p>El precio final se adapta a los apoyos y cuidados que precise la persona residente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card psup" style="margin-top:22px;">
+      <h3>Suplementos</h3>
+      <div class="ptable">
+        <div class="grp">Apoyo parcial</div>
+        <div class="row"><span>Ayuda/supervisión ducha 2-3 días/semana</span><b>150&nbsp;€</b></div>
+        <div class="row"><span>Ayuda/supervisión ducha diaria</span><b>300&nbsp;€</b></div>
+        <div class="row"><span>Ayuda/supervisión vestido</span><b>150&nbsp;€</b></div>
+        <div class="grp">Apoyo total</div>
+        <div class="row"><span>Ayuda/supervisión 2 personas o grúa</span><b>150&nbsp;€</b></div>
+        <div class="row"><span>Ayuda/supervisión traslados</span><b>85&nbsp;€</b></div>
+        <div class="row"><span>Incontinencia y/o apoyo WC</span><b>85&nbsp;€</b></div>
+        <div class="row"><span>Siesta</span><b>85&nbsp;€</b></div>
+        <div class="grp">Cuidados especiales</div>
+        <div class="row"><span>Conducta disruptiva¹</span><b>150&nbsp;€</b></div>
+        <div class="row"><span>Ayuda/supervisión alimentación</span><b>170&nbsp;€</b></div>
+        <div class="row"><span>Encamado</span><b>900&nbsp;€</b></div>
+        <div class="row"><span>Cuidados especiales de enfermería²</span><b>210&nbsp;€</b></div>
+      </div>
+    </div>
+    <div class="fine">
+      <p>¹ Personas con riesgo de salida no controlada, agresividad verbal o física, problemas que alteren la convivencia, etc.</p>
+      <p>² Cuidados que requieran atención médica o de enfermería de alta intensidad.</p>
+      <p>Precios IVA incluido. Actualizado en julio de 2026.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ EQUIPO ═══════════ -->
-<section class="alt">
+<section>
   <div class="wrap">
     <p class="eyebrow">El equipo</p>
     <h2 class="sec">Un equipo que entiende lo que tu familia necesita</h2>
@@ -287,7 +362,7 @@
 </section>
 
 <!-- ═══════════ PRUEBA SOCIAL ═══════════ -->
-<section>
+<section class="alt">
   <div class="wrap">
     <p class="eyebrow">Lo que dicen las familias</p>
     <h2 class="sec">Por qué confían en Real de Seseña</h2>
@@ -316,7 +391,7 @@
 </section>
 
 <!-- ═══════════ FAQ ═══════════ -->
-<section class="alt">
+<section>
   <div class="wrap">
     <p class="eyebrow">Resolvemos tus dudas</p>
     <h2 class="sec">Lo que más preguntan las familias</h2>
@@ -335,14 +410,14 @@
       </div>
       <div class="faqitem">
         <p class="q">¿Qué tipos de estancia hay?</p>
-        <p class="a">Estancia permanente, temporal (por vacaciones, recuperación o rehabilitación) o de respiro familiar. La cuota incluye alojamiento, manutención, atención sanitaria diaria y programa de actividades.</p>
+        <p class="a">Estancia permanente, temporal (por vacaciones, recuperación o rehabilitación) o de respiro familiar. La cuota incluye alojamiento, manutención, atención sanitaria diaria y programa de actividades. Las estancias inferiores a un mes incrementan en un 30&nbsp;% el precio de la plaza indefinida.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════ PROCESO ═══════════ -->
-<section>
+<section class="alt">
   <div class="wrap">
     <p class="eyebrow">Cómo funciona</p>
     <h2 class="sec">De la primera llamada al primer día</h2>
